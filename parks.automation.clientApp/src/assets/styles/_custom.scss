@@ -96,7 +96,9 @@ $colors: (
 	gray900: $gray900,
 	red500: $red500,
 	yellow500: $yellow-500,
-	green500: $green500
+	green500: $green500,
+  paBrandGreen: $paBrandGreen,
+  paBrandWhite: $paBrandWhite
 );
 
 @each $color, $value in $colors {
@@ -263,14 +265,25 @@ a {
   border: none;
   border-radius: 6px;
   padding: 0.5rem 1rem;
-  font-size: 1.5rem;
+  font-size: 1rem;
   font-weight: 700;
   cursor: pointer;
 }
 
 .brandPrimaryButton:hover {
   color: $paBrandWhite;
-  background-color: $paBrandGreen;
+  background-color: #002e00;
+}
+
+// .brandPrimaryButton:disabled {
+//   background-color: $gray400;
+//   color: $gray800;
+//   cursor: not-allowed;
+// }
+
+.brandPrimaryButton:not(:disabled):not(.disabled):focus:active {
+  color: $paBrandWhite;
+  background-color: #002e00 !important;
 }
 
 .brandOutlineButton {
@@ -279,7 +292,7 @@ a {
   border: 1px solid $paBrandGreen;
   border-radius: 6px;
   padding: 0.5rem 1rem;
-  font-size: 1.5rem;
+  font-size: 1rem;
   font-weight: 700;
   cursor: pointer;
 }
@@ -288,6 +301,12 @@ a {
   background-color: $paBrandWhite;
   color: #002e00;
   border: 1px solid #002e00;
+}
+
+.brandOutlineButton:not(:disabled):not(.disabled):focus:active {
+  background-color: $paBrandWhite;
+  color: $paBrandGreen !important;
+  border: 1px solid $paBrandGreen;
 }
 
 .btn-outline-primary:hover {
@@ -544,6 +563,10 @@ a {
 	border-color: $drBrandBlue;
 }
 
-.paBrandWhiteBackground {
-  background-color: $paBrandWhite !important;
+.align-items-center {
+  display: flex;
+  align-items: center;
+  /*Aligns vertically center */
+  justify-content: center;
+  /*Aligns horizontally center */
 }

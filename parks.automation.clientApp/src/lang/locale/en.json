@@ -16,5 +16,19 @@
   "xIHaveAReservation": "I have a reservation",
   "xBuyDayPass": "I want to buy a day pass",
   "xBuyOvernightPass": "I want to buy an overnight pass",
-  "xBuyAnnualPass": "I want to buy an annual pass"
+  "xBuyAnnualPass": "I want to buy an annual pass",
+  "xConfirmYourReservation": "Confirm Your Reservation",
+  "xReservationIdInvalid": "Reservation ID is invalid, please try again.",
+  "xReservationNotFound": "Reservation not found, please try again.",
+  "xConfirmByResId": "Confirm by Reservation ID",
+  "xIDoNotHaveResId": "I do not have my Reservation ID",
+  "xReservationId": "Reservation ID",
+  "xLookupReservation": "Lookup Reservation",
+  "xReservationLookup": "Reservation Lookup",
+  "xConfirmReservation": "Confirm Reservation",
+  "xFirstName": "First Name",
+  "xLastName": "Last Name",
+  "xEmail": "Email",
+  "xPhone": "Phone",
+  "xLookup": "Lookup"
 }

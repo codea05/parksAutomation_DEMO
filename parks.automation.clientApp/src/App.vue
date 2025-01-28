@@ -1,6 +1,6 @@
 <template>
-  <div id="app">
-    <nav class="navbar paBrandWhiteBackground fixed-top mb-0 pb-0 pt-0 shadow-bottom navbar-expand-lg">
+  <div>
+    <nav class="navbar bg-paBrandWhite fixed-top mb-0 pb-0 pt-0 shadow-bottom">
       <div class="container-fluid mb-0 pb-0">
         <div class="navbar-brand">
           <img src="./assets/images/parksAutomationLogo.svg" alt="Parks Automation Logo" width="200" />
@@ -29,7 +29,12 @@
         </div>
       </div>
     </nav>
-    <div style="padding-top: 60px;">
+    <div style="padding-top: 75px;">
+      <h1 class="text-center">
+        {{ t('xWelcomeToParkName', { parkName: getParkName() }) }}
+      </h1>
+    </div>
+    <div style="padding-top: 5px;">
       <router-view></router-view>
     </div>
     <div id="footer" class="container-fluid fixed-bottom">
@@ -54,7 +59,7 @@ const { t } = useI18n()
 
 
 onMounted(() => {
-  router.push({ name: 'welcome' })
+  // router.push({ name: 'welcome' })
   //check the screen width and set the breakpoint
   // window.addEventListener('resize', syncWidth)
 })
@@ -63,12 +68,16 @@ onMounted(() => {
 // onUnmounted(() => window.removeEventListener('resize', syncWidth))
 
 //set the breakpoint to the innerWidth of the window on a resize event
-const syncWidth = (e) => {
-  screenBreakpoint.value = e.target.innerWidth
-}
+// const syncWidth = (e) => {
+//   screenBreakpoint.value = e.target.innerWidth
+// }
 
 const getCurrentYear = () => {
   return new Date().getFullYear()
+}
+
+const getParkName = () => {
+  return 'THIS EXAMPLE PARK'
 }
 </script>
 

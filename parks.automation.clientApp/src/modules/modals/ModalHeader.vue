@@ -1,7 +1,7 @@
 <template>
-  <div class="modal-header align-items-center container-fluid" v-if="title">
+  <div class="modal-header align-items-center container-fluid bg-paBrandWhite" v-if="title">
     <h2 class="modal-title">
-      <i v-if="icon" :class="icon"></i>
+      <font-awesome-icon v-if="icon" :icon="icon" class="paBrandGreen"></font-awesome-icon>
       {{ title }}
     </h2>
     <!-- <button v-if="showDismissButton && modalId" class="btn-close" @click="closeModal(modalId)">
