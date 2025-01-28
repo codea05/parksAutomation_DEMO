@@ -1,0 +1,20 @@
+{
+  "xLanguage": "Language",
+  "xExtraShortTime": "hh:mm A z",
+  "xLongDateTime": "MMMM DD YYYY hh:mma",
+  "xMonthDay": "MMM DD",
+  "xShortDate": "MM/DD/YYYY",
+  "xShortDateTime": "MM/DD/YYYY hh:mm A",
+  "xShortDateTimeWithTZ": "MM/DD/YYYY hh:mm A z",
+  "xShortTime": "hh:mm:ss A",
+  "xValidTagRegex": "^[a-zA-Z0-9 ]*$",
+  "xYear-Month-Day": "YYYY-MM-DD",
+  "xEnglish": "English",
+  "xSpanish": "Spanish",
+  "xWelcomeToParkName": "Welcome to {parkName}",
+  "xSelectVisitType": "Please Select Your Visit Type",
+  "xIHaveAReservation": "I have a reservation",
+  "xBuyDayPass": "I want to buy a day pass",
+  "xBuyOvernightPass": "I want to buy an overnight pass",
+  "xBuyAnnualPass": "I want to buy an annual pass"
+}

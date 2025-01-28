@@ -1,0 +1,549 @@
+@use 'sass:math';
+
+// @font-face {
+// 	font-family: Lato;
+// 	src: url('/src/assets/styles/fonts/Lato/Lato-Bold.ttf') format('truetype');
+// 	font-weight: 700;
+// }
+
+// @font-face {
+// 	font-family: Roboto;
+// 	src: url('/src/assets/styles/fonts/Roboto/Roboto-Regular.ttf') format('truetype');
+// }
+
+// @font-face {
+// 	font-family: Roboto;
+// 	src: url('/src/assets/styles/fonts/Roboto/Roboto-Bold.ttf') format('truetype');
+// 	font-weight: 700;
+// }
+
+// @font-face {
+// 	font-family: Roboto;
+// 	src: url('/src/assets/styles/fonts/Roboto/Roboto-Italic.ttf') format('truetype');
+// 	font-style: italic;
+// }
+
+// @font-face {
+// 	font-family: Roboto;
+// 	src: url('/src/assets/styles/fonts/Roboto/Roboto-BoldItalic.ttf') format('truetype');
+// 	font-style: italic;
+// 	font-weight: 700;
+// }
+
+//color variables and map
+$drBrandBlue: #004fa3;
+$drBrandRed: #d13138;
+$drBrandWhite: #ffffff;
+$drBrandBlack: #000000;
+$drLightGray: #cccccc;
+$drNavy: #021a51;
+$drDarkGray: #545859;
+$drLightBlue: #c2d7ed;
+$bgLightBlue: #eef0fc;
+$bgMediumGray: #ededed;
+$bgLightGray: #f4f4f4;
+$drLinkHoverRed: #a9268c;
+$headingText: #303745;
+$bgPaleGray: #f8f8f8;
+
+$paBrandGreen: #006400;
+$paBrandWhite: #f5f5dc;
+
+//grays
+$gray100: #f3f4f6;
+$gray200: #e5e7eb;
+$gray300: #d2d5da;
+$gray400: #9ca3af;
+$gray500: #6d7280;
+$gray600: #4f5b6c;
+$gray700: #374151;
+$gray800: #1f2937;
+$gray900: #111827;
+
+//error colors
+$red500: #bf3628;
+
+//warning colors
+$yellow-500: #fdb813;
+
+//success colors
+$green500: #198545;
+
+$colors: (
+	drBrandBlue: $drBrandBlue,
+	drBrandRed: $drBrandRed,
+	drBrandWhite: $drBrandWhite,
+	drLightGray: $drLightGray,
+	drNavy: $drNavy,
+	drDarkGray: $drDarkGray,
+	drLightBlue: $drLightBlue,
+	bgLightBlue: $bgLightBlue,
+	bgMediumGray: $bgMediumGray,
+	bgLightGray: $bgLightGray,
+	drLinkHoverRed: $drLinkHoverRed,
+	drHeadingText: $headingText,
+	bgPaleGray: $bgPaleGray,
+	drWhite: $drBrandWhite,
+	drBlack: $drBrandBlack,
+	gray100: $gray100,
+	gray200: $gray200,
+	gray300: $gray300,
+	gray400: $gray400,
+	gray500: $gray500,
+	gray600: $gray600,
+	gray700: $gray700,
+	gray800: $gray800,
+	gray900: $gray900,
+	red500: $red500,
+	yellow500: $yellow-500,
+	green500: $green500
+);
+
+@each $color, $value in $colors {
+	//usage: to set something to brand blue, use .brandBlue
+	.#{$color} {
+		color: $value;
+	}
+	//usage: to set text to brand blue, use .text-brandBlue
+	.text-#{$color} {
+		color: $value;
+	}
+	//usage: to set a background to brand blue, use .bg-brandBlue
+	.bg-#{$color} {
+		background-color: $value;
+	}
+}
+
+html {
+	//@include fluid-type($min_width, $max_width, $min_font, $max_font);
+	font-size: 16px;
+	--scrollbarBG: #d2d5da;
+	--thumbBG: #6d7280;
+	scrollbar-width: thin;
+	scrollbar-color: var(--thumbBG) var(--scrollbarBG);
+}
+
+::-webkit-scrollbar {
+	width: 11px;
+}
+
+::-webkit-scrollbar-track {
+	background: var(--scrollbarBG);
+	border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: var(--thumbBG);
+	border-radius: 6px;
+}
+
+body {
+	font-family: 'Roboto', sans-serif;
+	line-height: 1.15;
+	background-color: $bgPaleGray;
+}
+
+h1 {
+	font-family: 'Lato', sans-serif;
+	font-weight: 700;
+	font-size: 1.5rem;
+	line-height: 1.75;
+}
+
+h2 {
+	font-family: 'Lato', sans-serif;
+	font-weight: 700;
+	font-size: 1.35rem;
+	line-height: 1.25;
+}
+
+h3 {
+	font-family: 'Lato', sans-serif;
+	font-weight: 700;
+	font-size: 1.25rem;
+	line-height: 1.25;
+}
+
+h4 {
+	font-family: 'Lato', sans-serif;
+	font-weight: 700;
+	font-size: 1.15rem;
+	line-height: 1.25;
+}
+
+h5 {
+	font-family: 'Lato', sans-serif;
+	font-weight: 700;
+	font-size: 1.125rem;
+	line-height: 1.25;
+}
+
+p {
+	margin-bottom: 0.35em;
+}
+
+a {
+	cursor: pointer;
+	color: $drBrandBlue !important;
+}
+
+
+.text-small {
+	font-size: 0.875em;
+}
+
+// Custom App styles
+
+.no-padding {
+	padding: 0px !important;
+}
+
+.no-border {
+	border: none !important;
+}
+
+.tile-content {
+	font-size: 1.25em;
+	margin: 0;
+	font-weight: 400;
+	padding-bottom: 7px;
+}
+
+.tile-label {
+	font-size: 1em;
+	text-align: left;
+	padding-bottom: 7px;
+}
+
+.headerInline {
+	display: inline;
+}
+
+//modals
+// Modal
+.modal-title {
+	font-weight: normal;
+}
+.modal {
+	background-color: rgba(0, 0, 0, 0.4);
+	-webkit-transition: 0.5s;
+	overflow: auto;
+	transition: all 0.3s linear;
+}
+
+.btn-primary {
+	background-color: $drBrandBlue;
+	color: $drBrandWhite;
+	border: none;
+	border-radius: 6px;
+	padding: 0.5rem 1rem;
+	font-size: 1rem;
+	font-weight: 700;
+	cursor: pointer;
+}
+
+.btn-primary:hover {
+	background-color: $drNavy;
+}
+
+.btn-outline-primary {
+	background-color: transparent;
+	color: $drBrandBlue;
+	border: 1px solid $drBrandBlue;
+	border-radius: 6px;
+	padding: 0.5rem 1rem;
+	font-size: 1rem;
+	font-weight: 700;
+	cursor: pointer;
+}
+
+.brandPrimaryButton {
+  background-color: $paBrandGreen;
+  color: $paBrandWhite;
+  border: none;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.brandPrimaryButton:hover {
+  color: $paBrandWhite;
+  background-color: $paBrandGreen;
+}
+
+.brandOutlineButton {
+  background-color: $paBrandWhite;
+  color: $paBrandGreen;
+  border: 1px solid $paBrandGreen;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.brandOutlineButton:hover {
+  background-color: $paBrandWhite;
+  color: #002e00;
+  border: 1px solid #002e00;
+}
+
+.btn-outline-primary:hover {
+	background-color: transparent;
+	color: $drNavy;
+	border: 1px solid $drNavy;
+}
+
+.btn-outline-light {
+	background-color: transparent;
+	color: $drBrandWhite;
+	border: 1px solid $drBrandWhite;
+	border-radius: 6px;
+	padding: 0.5rem 1rem;
+	font-size: 1rem;
+	font-weight: 700;
+	cursor: pointer;
+}
+
+.btn-outline-light:hover {
+	background-color: $drBrandWhite;
+	color: $drBrandBlue;
+	border: 1px solid $drBrandBlue;
+}
+
+.btn-outline-light:not(:disabled):not(.disabled):focus:active {
+	background-color: $drBrandWhite;
+	color: $drNavy !important;
+	border: 1px solid $drNavy;
+}
+
+.btn-nav-hamburger {
+	border: none;
+	width: 44px;
+	height: 44px;
+	border-radius: 6px !important;
+	background-color: transparent;
+	outline: none !important;
+	box-shadow: none !important;
+	padding: 0px 0px !important;
+	color: $drBrandWhite !important;
+}
+
+.btn-icon-button {
+	border-radius: 6px !important;
+	width: 44px;
+	height: 44px;
+	border: none;
+	background-color: transparent;
+	// color: $drBrandBlue !important;
+	outline: none !important;
+	box-shadow: none !important;
+	padding: 0px 0px !important;
+
+	&--gray {
+		color: $drDarkGray !important;
+	}
+
+	&:hover {
+		background-color: $drLightGray !important;
+		border: none;
+		// color: $drNavy;
+		outline: none !important;
+		box-shadow: none !important;
+	}
+}
+
+.btn-icon-button:not(:disabled):not(.disabled):hover {
+	background-color: $gray100 !important;
+	border: none;
+	// color: $gray800;
+	outline: none !important;
+	box-shadow: none !important;
+
+	// &--gray {
+	// 	color: $gray800;
+	// }
+}
+
+.btn-icon-button:not(:disabled):not(.disabled):focus:active {
+	background-color: $gray100 !important;
+	border: none;
+	// color: $drBrandBlue !important;
+	outline: none !important;
+	box-shadow: none !important;
+
+	// &--gray {
+	// 	color: $gray800 !important;
+	// }
+}
+
+.area-overlay {
+	position: absolute;
+	padding: 0;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: $gray400;
+	opacity: 0.5;
+	transition: opacity 0.5s;
+}
+
+.pointer-cursor {
+	cursor: pointer;
+}
+
+.strike {
+	display: block;
+	text-align: center;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+.strike > span {
+	position: relative;
+	display: inline-block;
+}
+
+.strike > span:before,
+.strike > span:after {
+	content: '';
+	position: absolute;
+	top: 50%;
+	width: 9999px;
+	height: 1px;
+	background: $gray400;
+}
+
+.strike > span:before {
+	right: 100%;
+	margin-right: 15px;
+}
+
+.strike > span:after {
+	left: 100%;
+	margin-left: 15px;
+}
+
+.valueLabel {
+	opacity: 0.75;
+}
+
+.valueText {
+	font-weight: 600;
+}
+
+.largerText {
+	font-size: 1.25rem;
+}
+
+.btn-link {
+	border-radius: 6px !important;
+	width: 44px;
+	height: 44px;
+	border: none;
+	background-color: transparent;
+	// color: $drBrandBlue !important;
+	outline: none !important;
+	box-shadow: none !important;
+	padding: 0px 0px !important;
+
+	// &--gray {
+	// 	color: $drDarkGray !important;
+	// }
+
+	&:hover {
+		background-color: $drLightGray !important;
+		border: none;
+		// color: $drNavy;
+		outline: none !important;
+		box-shadow: none !important;
+	}
+}
+
+.btn-link:not(:disabled):not(.disabled):hover {
+	background-color: $gray100 !important;
+	border: none;
+	// color: $gray800;
+	outline: none !important;
+	box-shadow: none !important;
+
+	// &--gray {
+	// 	color: $gray800;
+	// }
+}
+
+.btn-link:not(:disabled):not(.disabled):focus:active {
+	background-color: $gray100 !important;
+	border: none;
+	// color: $drBrandBlue !important;
+	outline: none !important;
+	box-shadow: none !important;
+
+	// &--gray {
+	// 	color: $gray800 !important;
+	// }
+}
+
+.nav-link-dark {
+	color: $drBrandWhite !important;
+	text-decoration: none;
+}
+
+.nav-link-dark:hover {
+	color: $drBrandWhite !important;
+}
+
+.nav-dropdown-item {
+	padding: 0.25rem 1rem;
+}
+.no-underline {
+	text-decoration: none !important;
+}
+.nav-list-group-item {
+	padding: 1rem 0.75rem;
+	color: $drBrandWhite;
+	width: 100%;
+	border-radius: 0px 30px 30px 0px;
+}
+.nav-list-group-item:hover {
+	background-color: rgba(255, 255, 255, 0.15);
+}
+.nav-list-group-item-active {
+	background-color: rgba(255, 255, 255, 0.15);
+}
+
+.valueLabel {
+	opacity: 0.75;
+}
+
+.valueText {
+	font-weight: 600;
+}
+
+.card-shadow {
+	box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
+	transition: box-shadow 0.3s;
+	&:hover {
+		box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3);
+	}
+}
+
+.hoverPointer {
+	cursor: pointer;
+}
+
+.form-check-label {
+	margin-top: 0.25rem;
+}
+
+.form-check-input:checked {
+	background-color: $drBrandBlue;
+	border-color: $drBrandBlue;
+}
+
+.paBrandWhiteBackground {
+  background-color: $paBrandWhite !important;
+}
