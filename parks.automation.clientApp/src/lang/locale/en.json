@@ -30,5 +30,6 @@
   "xLastName": "Last Name",
   "xEmail": "Email",
   "xPhone": "Phone",
-  "xLookup": "Lookup"
+  "xLookup": "Lookup",
+  "xReservationLookupInvalid": "Please enter at least an email, phone number, or first and last names."
 }
