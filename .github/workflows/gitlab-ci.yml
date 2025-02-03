@@ -29,7 +29,7 @@ jobs:
       - name: Upload production build files
         uses: actions/upload-artifact@v4
         with:
-          name: production-files
+          name: github-pages
           path: ./dist
           overwrite: true
 
@@ -43,7 +43,7 @@ jobs:
       id-token: write
 
     environment:
-      name: production-files
+      name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
