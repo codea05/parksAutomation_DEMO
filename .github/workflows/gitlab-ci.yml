@@ -44,6 +44,17 @@ jobs:
           name: production-files
           path: ./dist
 
+      - name: Check if gh-pages branch exists
+        run: |
+          if git show-ref --quiet refs/heads/gh-pages; then
+            echo "Branch exists."
+          else
+            git checkout --orphan gh-pages
+            git reset --hard
+            git commit --allow-empty -m "Initial gh-pages commit"
+            git push origin gh-pages
+          fi
+
       - name: Deploy to Github Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
