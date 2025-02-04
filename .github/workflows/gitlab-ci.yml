@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - 'main'
-      - 'pages/demo'
 
 jobs:
   build:
@@ -13,7 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: 'pages/demo'
+          ref: 'main'
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
