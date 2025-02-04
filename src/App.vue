@@ -42,7 +42,11 @@
     <div id="footer" class="container-fluid fixed-bottom bg-paBrandWhite pt-2">
       <div class="row">
         <div class="col text-center">
-          <p class="text-muted">© {{ getCurrentYear() }} Parks Automation</p>
+          <p class="text-muted">© {{ getCurrentYear() }}
+            <a href="https://parksautomation.com/" target="_blank">
+              Parks Automation
+            </a>
+          </p>
         </div>
       </div>
     </div>
