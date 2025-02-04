@@ -5,6 +5,11 @@
         <div class="navbar-brand">
           <img src="./assets/images/parksAutomationLogo.svg" alt="Parks Automation Logo" width="200" />
         </div>
+        <div class="navbar-text">
+          <h1 class="text-center">
+            {{ t('xWelcomeToParkName', { parkName: getParkName() }) }}
+          </h1>
+        </div>
         <div class="d-flex">
           <div class="nav-item dropstart">
             <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false"
@@ -30,20 +35,20 @@
       </div>
     </nav>
     <div style="padding-top: 75px;">
-      <h1 class="text-center">
-        {{ t('xWelcomeToParkName', { parkName: getParkName() }) }}
-      </h1>
     </div>
     <div style="padding-top: 5px;">
       <router-view></router-view>
     </div>
-    <div id="footer" class="container-fluid fixed-bottom">
+    <div id="footer" class="container-fluid fixed-bottom bg-paBrandWhite pt-2">
       <div class="row">
         <div class="col text-center">
           <p class="text-muted">© {{ getCurrentYear() }} Parks Automation</p>
         </div>
       </div>
     </div>
+    <!-- <div id="backgroundImage">
+      <img src="./assets/images/parksAutomationBackground.jpg" alt="Parks Automation Background" />
+    </div> -->
   </div>
 </template>
 
@@ -77,12 +82,23 @@ const getCurrentYear = () => {
 }
 
 const getParkName = () => {
-  return 'THIS EXAMPLE PARK'
+  return 'Wildwood State Park'
 }
 </script>
 
 <style lang="scss" scoped>
 .shadow-bottom {
   box-shadow: 0px 2px #006400;
+}
+
+#backgroundImage {
+  position: absolute;
+  bottom: 0;
+  // left: 0;
+  // right: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  opacity: 0.85;
 }
 </style>
