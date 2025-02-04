@@ -13,18 +13,18 @@
           {{ t('xIHaveAReservation') }}
         </button>
       </div>
-      <div class="row mt-3">
-        <div class="col-4">
+      <div class="row mt-lg-3">
+        <div class="col-lg-4 col-md-12 mt-3">
           <button class="btn brandOutlineButton h-100 w-100">
             {{ t('xBuyDayPass') }}
           </button>
         </div>
-        <div class="col-4">
+        <div class="col-lg-4 col-md-12mt-md-3 mt-3">
           <button class="btn brandOutlineButton h-100 w-100">
             {{ t('xBuyOvernightPass') }}
           </button>
         </div>
-        <div class="col-4">
+        <div class="col-lg-4 col-md-12 mt-3">
           <button class="btn brandOutlineButton h-100 w-100">
             {{ t('xBuyAnnualPass') }}
           </button>
