@@ -15,10 +15,12 @@
           </div>
         </div>
         <div class="mt-3">
-          <label for="reservationId">{{ t('xConfirmByResId') }}</label>
-          <input type="text" id="reservationId" class="form-control" :placeholder="t('xReservationId')"
-            v-model="resId" />
-          <div class="mt-3 row">
+          <div class="input group input-group-lg">
+            <label for="reservationId">{{ t('xConfirmByResId') }}</label>
+            <input type="text" id="reservationId" class="form-control" :placeholder="t('xReservationId')"
+              v-model="resId" />
+          </div>
+          <div class="mt-3 row align-content-end">
             <div class="col"></div>
             <div class="col-auto align-items-center">
               <a @click="openModal('no-res-id-modal')">
@@ -45,7 +47,7 @@ import { useI18n } from 'vue-i18n'
 import { useReservationStore } from '@/stores'
 import { useRouter } from 'vue-router'
 import { openModal } from '@/utils/mixins'
-import NoResIdModal from '@/views/NoResIdModal.vue'
+import NoResIdModal from '@/components/ReservationConfirmation/NoResIdModal.vue'
 
 const reservationStore = useReservationStore()
 const { t } = useI18n()
@@ -58,6 +60,9 @@ const goBack = () => {
 
 const lookupResById = () => {
   // call the API to look up the reservation by ID
-  reservationStore.getReservationById(resId.value)
+  reservationStore.getReservationById(resId.value).then(response => {
+    console.log(resId)
+    router.push({ path: `/reservation/${resId.value}` })
+  })
 }
 </script>
